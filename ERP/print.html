@@ -1,0 +1,211 @@
+﻿
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style>
+    table.ke-zeroborder td {
+        border-top: 1px double #AAA;
+        border-left: 1px double #AAA;
+    }
+    table.ke-zeroborder td:last-child{
+        border-right: 1px double #AAA;
+    }
+    table.ke-zeroborder .last{
+        border-right: 1px double #AAA;
+    }
+    table.ke-zeroborder tr:last-child td{
+        border-bottom: 1px double #AAA;
+    }
+    
+    table.ke-zeroborder .last_{
+        border-bottom: 1px double #AAA;
+    }
+    body, td {
+        font: 16px/1.5 "sans serif",tahoma,verdana,helvetica; margin: 0; padding: 0;
+    }
+    strong {
+    font: 18px/1.5 "sans serif",tahoma,verdana,helvetica;
+    font-weight: 900;
+    }
+</style>
+<SCRIPT language="VBScript"> 
+ dim hkey_root,hkey_path,hkey_key 
+ hkey_root="HKEY_CURRENT_USER" 
+ hkey_path="\Software\Microsoft\Internet Explorer\PageSetup" 
+  
+ function pagesetup_null() 
+ on error resume next 
+ Set RegWsh = CreateObject("WScript.Shell") 
+ hkey_key="\header" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"" 
+ hkey_key="\footer" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"" 
+ hkey_key="\margin_bottom" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"0.75"
+hkey_key="\margin_left" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"0.75" 
+ hkey_key="\margin_right" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"0.75" 
+ hkey_key="\margin_top" 
+ RegWsh.RegWrite hkey_root+hkey_path+hkey_key,"0.75" 
+ end function 
+ </SCRIPT>
+</head>
+<body onload="pagesetup_null()">
+<table>
+<tr>
+<td>
+	<table border="0" cellpadding="0" cellspacing="0" width="840" class="ke-zeroborder">
+		<tbody>
+            <tr><td colspan="9"  style="text-align:right;  border: 0px;">序号:${id}</td></tr>
+			<tr>
+				<td colspan="7" height="44" width="610" style="text-align:center;">
+					<h1 style="font: 24px/1.5; margin: 0; padding: 0;">大自然送货签收单</h1>
+				</td>
+				<td rowspan="5" width="230">床垫和你聊天：1.我是全天然植物的，刚见我时，我身上会散出淡淡的植物味道，可对人体是无害的哦，慢慢会散没了。2.总睡我一个部位，我会疼的，请3个月把我翻一次哦，杭州的梅雨季节2个月翻 一次。3.您的床要是不透气，最好在我身下放一张普通竹席，会更健康哦。4.我很娇贵的，不能暴晒，不能水洗。5.主人我爱您，你也会爱上我的。
+				</td>
+			</tr>
+			<tr>
+				<td height="26" width="150">
+					商场
+				</td>
+				<td colspan="2" width="150">
+                    &nbsp;${store_name}
+				</td>
+				<td width="150">
+					订单号
+				</td>
+				<td colspan="3" class="last" >
+                &nbsp;${bill_id}
+				</td>
+			</tr>
+			<tr>
+				<td height="26">
+					订货日期
+				</td>
+				<td colspan="2">
+                &nbsp;${create_time}
+				</td>
+				<td>
+					交货日期
+				</td>
+				<td>
+                &nbsp;${delivery_date}
+				</td>
+				<td>
+					经手人
+				</td>
+				<td class="last">
+                &nbsp;${user_name}
+				</td>
+			</tr>
+			<tr>
+				<td height="26">
+					货款总额
+				</td>
+				<td colspan="2">
+                &nbsp;${need_pay}
+				</td>
+				<td>
+					定金
+				</td>
+				<td class="3">
+                &nbsp;${front_pay}
+				</td>
+				<td>
+					余款
+				</td>
+				<td class="last">
+                &nbsp;${actually_pay}
+				</td>
+			</tr>
+			<tr>
+				<td height="26">
+					<strong>顾客地址</strong>
+				</td>
+				<td colspan="6" class="last">
+                <strong>&nbsp;${address}</strong>
+				</td>
+			</tr>
+			<tr>
+				<td height="32">
+					<strong>顾客姓名</strong>
+				</td>
+				<td colspan="2">
+					<strong>&nbsp;${customer_name}</strong>
+				</td>
+				<td width="150">
+					<strong>顾客电话</strong>
+				</td>
+				<td colspan="3">
+					<strong>&nbsp;${phone}</strong>
+				</td>
+				<td colspan="5" rowspan="7" width="230"class="last last_">
+					备注：${remarks}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" height="26" width="225">
+					产品型号
+				</td>
+				<td colspan="2" width="225">
+					产品规格
+				</td>
+				<td width="70">
+					颜色
+				</td>
+				<td width="70">
+					数量
+				</td>
+				<td>
+					合同金额
+				</td>
+			</tr>
+            ${rows}
+			<tr>
+				<td colspan="2" height="26">
+					小计
+				</td>
+				<td colspan="2"> &nbsp;
+				</td>
+				<td> &nbsp;
+				</td>
+				<td> &nbsp;
+				</td>
+				<td> &nbsp;${sum}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table>
+		<tr>
+			<td width="120">
+				<strong>送货人签名：</strong>
+			</td>
+			<td width="120">
+			</td>
+			<td width="120">
+				<strong>收货人签名：</strong>
+			</td>
+			<td width="120">
+			</td>
+			<td width="120">
+				<strong>收货日期：</strong>
+			</td>
+			<td width="120">
+			</td>
+		</tr>
+	</table>
+</td>
+<td style="WRITING-MODE:tb-lr;">
+第一联存根联（白）
+第二联仓库联（红）
+第三联客户联（黄）
+</td>
+</tr>
+</table>
+</body>
+</html>
