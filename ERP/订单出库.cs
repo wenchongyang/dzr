@@ -36,7 +36,7 @@ namespace ERP
         private void radGridView1_CellFormatting(object sender, Telerik.WinControls.UI.CellFormattingEventArgs e)
         {
             if (e.Column.Name == "out") {
-                if (e.Row.Cells["is_out_all"].Value != DBNull.Value &&  1 == Convert.ToInt16(e.Row.Cells["is_out_all"].Value))
+                if (e.Row.Cells["is_out_all"].Value != DBNull.Value &&  1 == Convert.ToInt32(e.Row.Cells["is_out_all"].Value))
                 {
                     e.CellElement.Enabled = false;
                 }else{
@@ -60,10 +60,10 @@ namespace ERP
             if (el.Data.Name == "out")
             {
                 出库详情 ckxq = new 出库详情();
-                ckxq.ProductId = Convert.ToInt16(el.RowInfo.Cells["product_id"].Value);
+                ckxq.ProductId = Convert.ToInt32(el.RowInfo.Cells["product_id"].Value);
                 ckxq.SalesId = SalesId;
                 ckxq.OutTime = this.radDateTimePicker1.Value;
-                ckxq.SalesDetailId = Convert.ToInt16(el.RowInfo.Cells["id"].Value);
+                ckxq.SalesDetailId = Convert.ToInt32(el.RowInfo.Cells["id"].Value);
                 ckxq.ShowDialog();
 
                 if (ckxq.DialogResult == System.Windows.Forms.DialogResult.OK) {
